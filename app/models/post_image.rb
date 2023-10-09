@@ -1,6 +1,7 @@
 class PostImage < ApplicationRecord
   has_one_attached :image #画像使用するモデルに記入
   belongs_to :user #アソシエーション
+  has_many :post_comments, dependent: :destroy
   #def=メソッド
   def get_image
     #ない限り　画像　添付
