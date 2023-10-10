@@ -1,4 +1,12 @@
 <h1>画像投稿フォーム</h1>
+<% if @post_image.errors.any? %>
+  <%= @post_image.errors.count %>エラーが発生しました。
+  <ul>
+    <% @post_image.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>  
 <%= form_with model: @post_image do |f| %>
   <h4>画像</h4>
   <!--accept補足。file_fieldは画像以外も投稿できてしまうため制限をかけている。-->
